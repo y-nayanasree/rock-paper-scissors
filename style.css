@@ -1,124 +1,151 @@
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
 body {
+    margin: 0;
     min-height: 100vh;
+    padding: 25px 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 24px 14px;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #6d28d9, #ec4899);
+    color: #292044;
 }
 
-.game-container {
+.game {
     width: 100%;
     max-width: 520px;
-    padding: 30px;
+    padding: 30px 24px;
+    background: white;
+    border-radius: 25px;
     text-align: center;
-    background: #fff;
-    border-radius: 24px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 15px 45px #32105b55;
 }
 
 .badge {
     display: inline-block;
-    padding: 7px 13px;
-    margin-bottom: 12px;
+    padding: 8px 15px;
     border-radius: 20px;
-    background: #eee8ff;
-    color: #6345b5;
-    font-size: 12px;
+    background: #f3e8ff;
+    color: #7e22ce;
     font-weight: bold;
-    letter-spacing: 1px;
+    font-size: 12px;
 }
 
 h1 {
-    color: #30245e;
+    color: #6d28d9;
     font-size: 29px;
-    line-height: 1.3;
+    margin-bottom: 8px;
 }
 
 .subtitle {
-    margin: 10px 0 25px;
     color: #777;
-    font-size: 14px;
-    line-height: 1.5;
+    margin-bottom: 25px;
 }
 
 .scoreboard {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 15px;
-    margin-bottom: 28px;
+    align-items: center;
+    gap: 22px;
+    margin: 25px 0;
 }
 
-.score-card {
-    flex: 1;
-    padding: 17px 10px;
+.score {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: #f5f0ff;
+    padding: 15px 22px;
     border-radius: 15px;
-    background: #f4f0ff;
-    color: #44317f;
+    min-width: 110px;
 }
 
-.score-card span {
-    display: block;
-    font-size: 11px;
+.score span {
+    font-size: 12px;
     font-weight: bold;
-    letter-spacing: 1px;
+    color: #777;
 }
 
-.score-card strong {
-    display: block;
-    margin-top: 7px;
-    font-size: 34px;
+.score strong {
+    font-size: 32px;
+    color: #6d28d9;
 }
 
 .vs {
-    color: #999;
     font-weight: bold;
-    font-size: 14px;
+    color: #ec4899;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+}
+
+button:not(:disabled):hover {
+    transform: translateY(-3px);
+}
+
+.start-btn,
+.again-btn,
+.reset-btn {
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.start-btn,
+.again-btn {
+    color: white;
+    background: #7c3aed;
+}
+
+.reset-btn {
+    color: #6d28d9;
+    background: #f3e8ff;
+}
+
+.countdown {
+    min-height: 55px;
+    margin: 20px 0;
+    font-size: 23px;
+    font-weight: bold;
+    color: #db2777;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 h2 {
-    margin-bottom: 17px;
-    color: #30245e;
     font-size: 18px;
 }
 
 .choices {
     display: flex;
     justify-content: center;
-    gap: 13px;
+    gap: 12px;
+    margin: 20px 0;
 }
 
 .choice {
-    flex: 1;
-    max-width: 125px;
-    padding: 17px 8px;
-    border: 2px solid #e8e1ff;
-    border-radius: 17px;
-    background: #faf9ff;
-    color: #45317e;
-    cursor: pointer;
-    transition: transform 0.2s, background 0.2s, border-color 0.2s;
-}
-
-.choice:hover {
-    transform: translateY(-5px);
-    border-color: #8a6be0;
-    background: #eee8ff;
-}
-
-.choice:focus-visible,
-.reset-btn:focus-visible {
-    outline: 3px solid #30245e;
-    outline-offset: 3px;
+    min-width: 95px;
+    padding: 15px 10px;
+    border-radius: 16px;
+    background: #f5f0ff;
+    border: 2px solid #e9d5ff;
+    color: #6d28d9;
 }
 
 .choice span {
@@ -132,81 +159,75 @@ h2 {
     font-weight: bold;
 }
 
-.result-box {
-    margin-top: 25px;
-    padding: 19px 12px;
-    border-radius: 15px;
-    background: #f6f3ff;
+.choice:not(:disabled):hover {
+    background: #ede9fe;
+    border-color: #8b5cf6;
+}
+
+.result {
+    background: #fff1f8;
+    border-radius: 16px;
+    padding: 15px;
+    margin-top: 22px;
 }
 
 #status {
-    color: #503a96;
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 1.5;
+    color: #9d174d;
+    min-height: 22px;
 }
 
 .moves {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 12px;
-    color: #666;
-    font-size: 13px;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.moves p {
+    font-size: 12px;
+    color: #777;
 }
 
 .moves strong {
-    color: #3d2b79;
+    display: block;
+    font-size: 19px;
 }
 
 #roundCount {
-    margin-top: 18px;
-    color: #777;
-    font-size: 13px;
-}
-
-.reset-btn {
-    margin-top: 17px;
-    padding: 12px 23px;
-    border: none;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
+    color: #666;
     font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.reset-btn:hover {
-    transform: scale(1.04);
 }
 
 .footer {
-    margin-top: 23px;
-    color: #999;
     font-size: 12px;
+    color: #888;
+    margin-top: 25px;
 }
 
 @media (max-width: 400px) {
-    .game-container {
-        padding: 23px 15px;
+    .game {
+        padding: 24px 14px;
     }
 
     h1 {
         font-size: 24px;
     }
 
-    .scoreboard {
-        gap: 8px;
+    .choices {
+        gap: 7px;
     }
 
     .choice {
-        padding: 14px 5px;
+        min-width: 0;
+        flex: 1;
+        padding: 13px 5px;
     }
 
-    .choice span {
-        font-size: 29px;
+    .scoreboard {
+        gap: 10px;
+    }
+
+    .score {
+        min-width: 90px;
+        padding: 12px;
     }
 }
