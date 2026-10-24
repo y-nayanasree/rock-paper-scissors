@@ -21,8 +21,8 @@ let computerScore = 0;
 let roundsPlayed = 0;
 
 function playGame(playerChoice) {
-    const randomIndex = Math.floor(Math.random() * choices.length);
-    const computerChoice = choices[randomIndex];
+    const computerChoice =
+        choices[Math.floor(Math.random() * choices.length)];
 
     roundsPlayed++;
 
@@ -43,22 +43,18 @@ function playGame(playerChoice) {
         statusElement.textContent = "💻 Computer Wins!";
     }
 
-    updateScoreboard();
-}
-
-function updateScoreboard() {
     playerScoreElement.textContent = playerScore;
     computerScoreElement.textContent = computerScore;
     roundCountElement.textContent = `Rounds played: ${roundsPlayed}`;
 }
 
 choiceButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        playGame(button.dataset.choice);
+    button.addEventListener("click", function () {
+        playGame(this.dataset.choice);
     });
 });
 
-resetBtn.addEventListener("click", () => {
+resetBtn.addEventListener("click", function () {
     playerScore = 0;
     computerScore = 0;
     roundsPlayed = 0;
@@ -67,7 +63,7 @@ resetBtn.addEventListener("click", () => {
     computerMoveElement.textContent = "—";
     statusElement.textContent = "Make your first move!";
 
-    updateScoreboard();
+    playerScoreElement.textContent = "0";
+    computerScoreElement.textContent = "0";
+    roundCountElement.textContent = "Rounds played: 0";
 });
-
-updateScoreboard();
