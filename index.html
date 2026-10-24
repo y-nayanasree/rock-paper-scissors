@@ -8,50 +8,63 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="game-container">
+    <main class="game">
         <div class="badge">💎 MINI GAME</div>
         <h1>Rock Paper Scissors</h1>
-        <p class="subtitle">Choose your move and challenge the computer!</p>
+        <p class="subtitle">Ready? Let's play together!</p>
 
         <section class="scoreboard">
-            <div class="score-card">
+            <div class="score">
                 <span>YOU</span>
                 <strong id="playerScore">0</strong>
             </div>
             <div class="vs">VS</div>
-            <div class="score-card">
+            <div class="score">
                 <span>COMPUTER</span>
                 <strong id="computerScore">0</strong>
             </div>
         </section>
 
+        <button id="startBtn" class="start-btn">▶ Start Game</button>
+
+        <div id="countdown" class="countdown" aria-live="polite">
+            Click Start Game!
+        </div>
+
         <h2>Choose your move</h2>
 
         <div class="choices">
-            <button class="choice" data-choice="rock" aria-label="Choose Rock">
-                <span>✊</span>
-                <small>Rock</small>
+            <button class="choice" data-choice="rock" disabled>
+                <span>✊</span><small>Rock</small>
             </button>
-            <button class="choice" data-choice="paper" aria-label="Choose Paper">
-                <span>✋</span>
-                <small>Paper</small>
+            <button class="choice" data-choice="paper" disabled>
+                <span>✋</span><small>Paper</small>
             </button>
-            <button class="choice" data-choice="scissors" aria-label="Choose Scissors">
-                <span>✌️</span>
-                <small>Scissors</small>
+            <button class="choice" data-choice="scissors" disabled>
+                <span>✌️</span><small>Scissors</small>
             </button>
         </div>
 
-        <section class="result-box" aria-live="polite">
-            <p id="status">Make your first move!</p>
+        <section class="result">
+            <h2 id="status">Your game starts here!</h2>
             <div class="moves">
-                <span>You: <strong id="playerMove">—</strong></span>
-                <span>Computer: <strong id="computerMove">—</strong></span>
+                <div>
+                    <p>Your Choice</p>
+                    <strong id="playerMove">❔</strong>
+                </div>
+                <div>
+                    <p>Computer Choice</p>
+                    <strong id="computerMove">❔</strong>
+                </div>
             </div>
         </section>
 
         <p id="roundCount">Rounds played: 0</p>
-        <button id="resetBtn" class="reset-btn">↻ Reset Game</button>
+
+        <button id="playAgainBtn" class="again-btn" disabled>
+            ↻ Play Again
+        </button>
+        <button id="resetBtn" class="reset-btn">Reset Score</button>
 
         <p class="footer">Built with HTML, CSS & JavaScript 💜</p>
     </main>
