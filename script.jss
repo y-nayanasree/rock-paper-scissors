@@ -67,3 +67,18 @@ resetBtn.addEventListener("click", function () {
     computerScoreElement.textContent = "0";
     roundCountElement.textContent = "Rounds played: 0";
 });
+.choice {
+    cursor: pointer;
+    pointer-events: auto;
+    position: relative;
+    z-index: 10;
+}
+
+.choices {
+    position: relative;
+    z-index: 10;
+}
+
+button {
+    pointer-events: auto;
+}
